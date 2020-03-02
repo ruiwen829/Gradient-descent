@@ -1,3 +1,5 @@
+#I have been practicing gradient descent with python, I want to try it with R today.
+# The dataset I used is new york house.csv, but the cut version with only two variables--bedrooms and sqft, and price
 df = read.csv('house.csv')
 summary(df)
 lm(df$price~df$bd+df$sqft)
@@ -50,19 +52,18 @@ cost_hist <- results[[2]]
 print(theta)
 plot(cost_hist)
 
+#compare the result with the one manually calculated
 df_scale = df
-#df_scale$price = (df_scale$price-mean(df$price))/sd(df$price)
 df_scale$sqft = (df_scale$sqft-mean(df_scale$sqft))/sd(df_scale$sqft)/1e+05
 df_scale$bd = (df_scale$bd-mean(df_scale$bd))/sd(df_scale$bd) / 1e+05
 lm(df_scale$price~df_scale$bd+df_scale$sqft) 
 summary(lmdf)
-head(df_scale)
+
 
 (solve(t(X)%*%X))%*%t(X)%*%y
-head(X)
 
-aaa = -t(X)%*%(X%*%theta - y)
-contour()
+
+
 
 
         
